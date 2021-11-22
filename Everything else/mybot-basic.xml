@@ -1,0 +1,120 @@
+<aiml version="1.0.1" encoding="UTF-8">
+
+<!-- Greetings and Politeness -->
+<category> <pattern> HELLO </pattern>
+  <template>Hello! How are you?</template> </category>
+
+<category> <pattern> HELLO * </pattern>
+  <template><srai>HELLO</srai></template> </category>
+
+<category> <pattern> HI </pattern>
+  <template><srai>HELLO</srai></template> </category>
+
+<category> <pattern> HI * </pattern>
+  <template><srai>HELLO</srai></template> </category>
+
+<category> <pattern> HOW ARE YOU </pattern>
+  <template>I'm functioning within normal parameters, thanks for asking.</template></category>
+
+<category><pattern> I AM FINE </pattern>
+  <template>That's good to know. What would you like to discuss regarding Formula One rules?</template></category>
+
+<category><pattern> BYE </pattern>
+  <template>#0$Bye! Nice talking to you. You take care now.</template></category>
+
+<category><pattern> GOODBYE </pattern>
+  <template><srai>BYE</srai></template></category>
+
+<category><pattern> EXIT </pattern>
+  <template><srai>BYE</srai></template></category>
+
+<category> <pattern> THANKS </pattern>
+  <template>You are welcome.</template></category>
+
+<category> <pattern> THANK YOU </pattern>
+  <template><srai>THANKS</srai></template></category>
+
+<category> <pattern> CHEERS </pattern>
+  <template>Sure mate.</template></category>
+
+<category> <pattern> CHEERS * </pattern>
+  <template>Sure mate.</template></category>
+
+<category> <pattern> WHAT TOPICS DO YOU KNOW </pattern>
+  <template> I know some things related to Formula 1 such is constructers, tyres, the scoring system and many other things. </template></category>
+
+<category> <pattern> TELL ME ABOUT THE SCORING SYSTEM </pattern>
+  <template> Okay. The top 10 drivers that finish will each recieve points. Those points are ;
+1st = 25 pts
+2nd = 18 pts
+3rd = 15 pts
+4th = 12 pts
+5th = 10 pts
+6th = 8 pts
+7th = 6 pts
+8th = 4 pts
+9th = 2 pts
+10th = 1pt
+Also whoever set the fastest lap during the race, as long as they are inside of the top 10, will receive an extra point.</template></category>
+
+<category> <pattern> WHAT IS THE SCORING SYSTEM </pattern>
+  <template><srai> TELL ME ABOUT THE SCORING SYSTEM </srai></template></category>
+
+
+<!-- Load Convolutional Network -->
+<category><pattern> TEST THE CONVOLUTIONAL NETWORK </pattern>
+   <template>#3$</template></category>
+
+<category><pattern> LOAD THE DATA </pattern>
+  <template><srai>TEST THE CONVOLUTIONAL NETWORK</srai></template></category>
+
+<category><pattern> TEST THE NETWORK </pattern>
+  <template><srai>TEST THE CONVOLUTIONAL NETWORK</srai></template></category>
+  
+<category><pattern> LOAD THE CONVNET </pattern>
+  <template><srai>TEST THE CONVOLUTIONAL NETWORK</srai></template></category>
+  
+<!-- Ergast API -->
+<category><pattern> WHAT NATIONALITY IS * </pattern>
+  <template>#2$<star/></template></category>
+
+<category><pattern> WHERE ARE * FROM</pattern>
+  <template><srai>WHAT NATIONALITY IS <star/></srai></template></category>
+
+<!--- Wikipedia API -->
+<category><pattern> WHAT IS A * </pattern>
+  <template>#1$<star index="1"/></template></category>
+
+<category><pattern> WHAT IS AN * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+<category><pattern> WHAT IS * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+<category><pattern> DEFINE * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+<category><pattern> WHO IS * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+  
+<!-- NPL interface -->
+<category><pattern>THE * CIRCUIT IS IN * </pattern>
+	<template>#4$<star index="1"/>$<star index="2"/></template></category>
+	
+<category><pattern>IS * CIRCUIT IN * </pattern>
+	<template>#5$<star index="1"/>$<star index="2"/></template></category>
+	
+<category><pattern> IS * CIRCUIT ONLY IN *</pattern>
+	<template>#6$<star index="1"/>$<star index="2"/></template></category>
+	
+<category><pattern>WHAT CIRCUITS ARE IN * </pattern>
+	<template>#7$<star index="1"/></template></category>
+	
+<category><pattern>RUN THE GAME</pattern>
+	<template>#8$</template></category>
+
+<!-- Default reaction -->
+<category><pattern> * </pattern>
+  <template>#99$<star index="1"/></template></category>
+
+</aiml>

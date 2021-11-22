@@ -1,0 +1,128 @@
+## Natural Language Toolkit: sem3.fcfg
+##
+## Alternative simple grammar with transitive verbs and 
+## quantifiers for the book. 
+## 
+## Author: Ewan Klein <ewan@inf.ed.ac.uk> 
+## URL: <http://nltk.sourceforge.net>
+## For license information, see LICENSE.TXT
+
+## modified by Benjamin Inden, Nottingham Trent University
+
+% start S
+############################
+# Grammar Rules
+#############################
+
+S[SEM = <?subj(?vp)>] -> NP[NUM=?n,SEM=?subj] VP[NUM=?n,SEM=?vp]
+
+NP[NUM=?n,SEM=<?det(?nom)> ] -> Det[NUM=?n,SEM=?det]  Nom[NUM=?n,SEM=?nom]
+NP[LOC=?l,NUM=?n,SEM=?np] -> PropN[LOC=?l,NUM=?n,SEM=?np]
+
+Nom[NUM=?n,SEM=?nom] -> N[NUM=?n,SEM=?nom]
+
+VP[NUM=?n,SEM=?v] -> IV[NUM=?n,SEM=?v]
+VP[NUM=?n,SEM=<?v(?obj)>] -> TV[NUM=?n,SEM=?v] NP[SEM=?obj]
+VP[NUM=?n,SEM=<?v(?obj,?pp)>] -> DTV[NUM=?n,SEM=?v] NP[SEM=?obj] PP[+TO,SEM=?pp]
+
+PP[+TO, SEM=?np] -> P[+TO] NP[SEM=?np]
+
+#############################
+# Lexical Rules
+#############################
+
+PropN[-LOC,NUM=sg,SEM=<\P.P(angus)>] -> 'Angus'
+PropN[-LOC,NUM=sg,SEM=<\P.P(brutus)>] -> 'Brutus'
+PropN[-LOC,NUM=sg,SEM=<\P.P(cyril)>] -> 'Cyril'
+PropN[-LOC,NUM=sg,SEM=<\P.P(irene)>] -> 'Irene'
+PropN[-LOC,NUM=sg,SEM=<\P.P(field1)>] -> 'field1'
+PropN[-LOC,NUM=sg,SEM=<\P.P(field2)>] -> 'field2'
+PropN[-LOC,NUM=sg,SEM=<\P.P(field3)>] -> 'field3'
+PropN[-LOC,NUM=sg,SEM=<\P.P(field4)>] -> 'field4'
+PropN[-LOC,NUM=sg,SEM=<\P.P(Australia)>] -> 'Australia'
+PropN[-LOC,NUM=sg,SEM=<\P.P(Bahrain)>] -> 'Bahrain'
+PropN[-LOC,NUM=sg,SEM=<\P.P(Vietnam)>] -> 'Vietnam'
+PropN[-LOC,NUM=sg,SEM=<\P.P(China)>] -> 'China'
+PropN[-LOC,NUM=sg,SEM=<\P.P(Dutch)>] -> 'Dutch'
+PropN[-LOC,NUM=sg,SEM=<\P.P(Spain)>] -> 'Spain'
+PropN[-LOC,NUM=sg,SEM=<\P.P(Monaco)>] -> 'Monaco'
+PropN[-LOC,NUM=sg,SEM=<\P.P(Azerbaijan)>] -> 'Azerbaijan'
+PropN[-LOC,NUM=sg,SEM=<\P.P(Canada)>] -> 'Canada'
+PropN[-LOC,NUM=sg,SEM=<\P.P(France)>] -> 'France'
+PropN[-LOC,NUM=sg,SEM=<\P.P(Austria)>] -> 'Austria'
+PropN[-LOC,NUM=sg,SEM=<\P.P(Britian)>] -> 'Britian'
+PropN[-LOC,NUM=sg,SEM=<\P.P(Hungary)>] -> 'Hungary'
+PropN[-LOC,NUM=sg,SEM=<\P.P(Belgium)>] -> 'Belgium'
+PropN[-LOC,NUM=sg,SEM=<\P.P(Italy)>] -> 'Italy'
+PropN[-LOC,NUM=sg,SEM=<\P.P(Singapore)>] -> 'Singapore'
+PropN[-LOC,NUM=sg,SEM=<\P.P(Russia)>] -> 'Russia'
+PropN[-LOC,NUM=sg,SEM=<\P.P(Japan)>] -> 'Japan'
+PropN[-LOC,NUM=sg,SEM=<\P.P(America)>] -> 'America'
+PropN[-LOC,NUM=sg,SEM=<\P.P(Mexico)>] -> 'Mexico'
+PropN[-LOC,NUM=sg,SEM=<\P.P(Brazil)>] -> 'Brazil'
+PropN[-LOC,NUM=sg,SEM=<\P.P(AbuDhabi)>] -> 'AbuDhabi'
+
+Det[NUM=sg,SEM=<\P Q.all x.(P(x) -> Q(x))>] -> 'every'
+Det[NUM=pl,SEM=<\P Q.all x.(P(x) -> Q(x))>] -> 'all'
+Det[SEM=<\P Q.exists x.(P(x) & Q(x))>] -> 'some'
+Det[NUM=sg,SEM=<\P Q.exists x.(P(x) & Q(x))>] -> 'a'
+Det[NUM=sg,SEM=<\P Q.exists x.(P(x) & Q(x))>] -> 'an'
+
+N[NUM=pl,SEM=<\x.Melbourne(x)>] -> 'Melbourne'
+N[NUM=pl,SEM=<\x.Bahrain(x)>] -> 'Bahrain'
+N[NUM=pl,SEM=<\x.Hanoi(x)>] -> 'Hanoi'
+N[NUM=pl,SEM=<\x.Shanghai(x)>] -> 'Shanghai'
+N[NUM=pl,SEM=<\x.Zandavoort(x)>] -> 'Zandavoort'
+N[NUM=pl,SEM=<\x.Catalunya(x)>] -> 'Catalunya'
+N[NUM=pl,SEM=<\x.Monaco(x)>] -> 'Monaco'
+N[NUM=pl,SEM=<\x.Baku(x)>] -> 'Baku'
+N[NUM=pl,SEM=<\x.GillesVilleneuve(x)>] -> 'GillesVilleneuve'
+N[NUM=pl,SEM=<\x.PaulRicard(x)>] -> 'PaulRicard'
+N[NUM=pl,SEM=<\x.RedBull(x)>] -> 'RedBull'
+N[NUM=pl,SEM=<\x.Silverstone(x)>] -> 'Silverstone'
+N[NUM=pl,SEM=<\x.Hungaroring(x)>] -> 'Hungaroring'
+N[NUM=pl,SEM=<\x.Spa(x)>] -> 'Spa'
+N[NUM=pl,SEM=<\x.Monza(x)>] -> 'Monza'
+N[NUM=pl,SEM=<\x.MarinaBay(x)>] -> 'MarinaBay'
+N[NUM=pl,SEM=<\x.Sochi(x)>] -> 'Sochi'
+N[NUM=pl,SEM=<\x.Suzuka(x)>] -> 'Suzuka'
+N[NUM=pl,SEM=<\x.Americas(x)>] -> 'Americas'
+N[NUM=pl,SEM=<\x.HermanosRodriguez(x)>] -> 'HermanosRodriguez'
+N[NUM=pl,SEM=<\x.JoseCarlos(x)>] -> 'JoseCarlos'
+N[NUM=pl,SEM=<\x.YasMarina(x)>] -> 'YasMarina'
+N[NUM=pl,SEM=<\x.lettuces(x)>] -> 'lettuces'
+N[NUM=pl,SEM=<\x.cabbages(x)>] -> 'cabbages'
+N[NUM=pl,SEM=<\x.mustards(x)>] -> 'mustards'
+N[NUM=pl,SEM=<\x.potatoes(x)>] -> 'potatoes'
+N[NUM=pl,SEM=<\x.onions(x)>] -> 'onions'
+N[NUM=pl,SEM=<\x.carrots(x)>] -> 'carrots'
+N[NUM=pl,SEM=<\x.beans(x)>] -> 'beans'
+N[NUM=pl,SEM=<\x.peas(x)>] -> 'peas'
+N[NUM=sg,SEM=<\x.man(x)>] -> 'man'
+N[NUM=sg,SEM=<\x.girl(x)>] -> 'girl'
+N[NUM=sg,SEM=<\x.boy(x)>] -> 'boy'
+N[NUM=sg,SEM=<\x.bone(x)>] -> 'bone'
+N[NUM=sg,SEM=<\x.ankle(x)>] -> 'ankle'
+N[NUM=sg,SEM=<\x.dog(x)>] -> 'dog'
+N[NUM=pl,SEM=<\x.dog(x)>] -> 'dogs'
+N[NUM=sg,SEM=<\x.cat(x)>] -> 'cat'
+N[NUM=pl,SEM=<\x.cat(x)>] -> 'cats'
+
+IV[NUM=sg,SEM=<\x.bark(x)>,TNS=pres] -> 'barks'
+IV[NUM=pl,SEM=<\x.bark(x)>,TNS=pres] -> 'bark'
+IV[NUM=sg,SEM=<\x.walk(x)>,TNS=pres] -> 'walks'
+IV[NUM=pl,SEM=<\x.walk(x)>,TNS=pres] -> 'walk'
+TV[NUM=sg,SEM=<\X x.X(\y.chase(x,y))>,TNS=pres] -> 'chases'
+TV[NUM=pl,SEM=<\X x.X(\y.chase(x,y))>,TNS=pres] -> 'chase'
+TV[NUM=sg,SEM=<\X x.X(\y.see(x,y))>,TNS=pres] -> 'sees'
+TV[NUM=pl,SEM=<\X x.X(\y.see(x,y))>,TNS=pres] -> 'see'
+TV[NUM=sg,SEM=<\X x.X(\y.hear(x,y))>,TNS=pres] -> 'hears'
+TV[NUM=pl,SEM=<\X x.X(\y.hear(x,y))>,TNS=pres] -> 'hear'
+TV[NUM=sg,SEM=<\X x.X(\y.bite(x,y))>,TNS=pres] -> 'bites'
+TV[NUM=pl,SEM=<\X x.X(\y.bite(x,y))>,TNS=pres] -> 'bite'
+TV[NUM=sg,SEM=<\X x.X(\y.be_in(x,y))>,TNS=pres] -> 'is_in'
+TV[NUM=pl,SEM=<\X x.X(\y.be_in(x,y))>,TNS=pres] -> 'are_in'
+DTV[NUM=sg,SEM=<\Y X x.X(\z.Y(\y.give(x,y,z)))>,TNS=pres] -> 'gives'
+DTV[NUM=pl,SEM=<\Y X x.X(\z.Y(\y.give(x,y,z)))>,TNS=pres] -> 'give'
+
+P[+to] -> 'to'

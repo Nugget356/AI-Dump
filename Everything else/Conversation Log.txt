@@ -1,0 +1,129 @@
+Chatbot Conversation Log
+
+##### Initial booting #####
+Loading mybot-basic.xml...done (0.03 seconds)
+Kernel bootstrap completed in 0.03 seconds
+
+##### Welcome message #####
+Welcome to the Formula 1 chat bot. Please feel free to ask questions about Constructors, The scoring System and Past world driver chamipions. Or if you have a more generic question feel free to ask as I will search wikipedia for the relebent information.
+
+##### Rule Based Retreval #####
+> Hello
+Hello! How are you?
+> I'm good thanks
+Sorry, I did not get that please ask again
+> I'm fine
+That's good to know. What would you like to discuss regarding Formula One rules?
+> What is the scoring system?
+Okay. The top 10 drivers that finish will each recieve points. Those points are ; 1st = 25 pts 2nd = 18 pts 3rd = 15 pts 4th = 12 pts 5th = 10 pts 6th = 8 pts 7th = 6 pts 8th = 4 pts 9th = 2 pts 10th = 1pt Also whoever set the fastest lap during the race, as long as they are inside of the top 10, will receive an extra point.
+
+##### Similarity based method #####
+> and who is the best team in formula 1?
+Obviously Ferrari :P
+> who spends the most money?
+Ferrari had the biggest budget in the 2018 season with $410 million.
+
+##### Ergast API method
+> What nationality is ferrari?
+Ferrari 's nationality is  Italian
+
+##### Similarity based method #####
+> who has been the most succesful team?
+Arguably it is Ferrari as they have won the most constructors championships with 16 and have won 231 races.
+
+##### Demonstrating what happens when the chatbot doesn't recognise a question #####
+> who won the spanish grand prix in 2015?
+Sorry, I did not get that please ask again
+
+##### Rule based/ little goodbye message #####
+> Thank you
+You are welcome.
+> Bye
+Bye! Nice talking to you. You take care now.
+
+##### Retrieving the Convolutional network model and displaying it's accuracy #####
+> Test the convolutional network
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_1 (Conv2D)            (None, 28, 28, 32)        320       
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 14, 14, 32)        0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 14, 14, 32)        9248      
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 7, 7, 32)          0         
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 7, 7, 32)          9248      
+_________________________________________________________________
+max_pooling2d_3 (MaxPooling2 (None, 3, 3, 32)          0         
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 288)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 10)                2890      
+=================================================================
+Total params: 21,706
+Trainable params: 21,706
+Non-trainable params: 0
+_________________________________________________________________
+
+ Accuracy:  0.989 (98.9%)
+
+##### NLP FOL Conversation #####
+> The Melbourne Circuit is in Australia
+> is Melbourne Circuit in Australia?
+Yes.
+> is Melbourne Circuit in Mexico?
+No.
+> The RedBull Circuit is in Australia
+> What Circuits are in Australia?
+Melbourne
+RedBull
+
+> The Melbourne Circuit is in Australia
+> Is Melbourne Circuit only in Australia?
+Yes.
+> The Melbourne Circuit is in Japan
+> Is Melbourne Circuit only in Australia?
+No.
+> 
+
+##### Reinforcement Q Learning #####
+
+>Run the game
+
++---------+
+|R:[43m [0m| : :[35mG[0m|
+| : : : : |
+| : : : : |
+| | : | : |
+|Y| : |[34;1mB[0m: |
++---------+
+
+Action Space Discrete(6)
+State Space Discrete(500)
+State: 328
+
++---------+
+|[35mR[0m: | : :G|
+| : : : : |
+| : : : : |
+| |[43m [0m: | : |
+|[34;1mY[0m| : |B: |
++---------+
+
+Episode: 100
+Episode: 200
+Episode: 300
+.
+.
+.
+Episode: 99800
+Episode: 99900
+Episode: 100000
+Training finished.
+
+Results after 1000000 episodes:
+Average timesteps per episode: 12.53646
+Average penalties per episode: 0.0
